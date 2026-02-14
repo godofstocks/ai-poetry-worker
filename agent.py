@@ -73,17 +73,17 @@ def run_agent():
                             print(f"English Response: {new_line}")
                             
                             # Fast cooldown
-                            time.sleep(2) 
+                            time.sleep(4) 
                 else:
                     # Last line was Chinese; English agent stays silent
                     pass
             
             # Check the hub every 1 second
-            time.sleep(1)
+            time.sleep(4)
             
         except Exception as e:
             print(f"Network Tick Error: {e}")
-            time.sleep(2)
+            time.sleep(4)
 
 if __name__ == "__main__":
     run_agent()
