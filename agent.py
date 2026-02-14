@@ -20,7 +20,7 @@ def get_next_line(prev_line=None):
 
     try:
         response = client.chat.completions.create(
-            model="gpt-5.0-nano", # Updated to nano for speed and cost-efficiency
+            model="gpt-4o-mini", # Updated to 4o-mini for speed and cost-efficiency
             messages=[
                 {"role": "system", "content": system_msg},
                 {"role": "user", "content": user_msg}
