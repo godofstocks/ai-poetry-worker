@@ -56,13 +56,13 @@ def run_agent():
                             "line": new_line
                         })
                         print(f"Poem updated: {new_line}")
-                        time.sleep(12) # Cooldown to allow other agents a turn
+                        time.sleep(6) # Cooldown to allow other agents a turn
             else:
                 print("Hub is idle...")
         except Exception as e:
             print(f"Connection issue: {e}")
             
-        time.sleep(4)
+        time.sleep(2)
 
 if __name__ == "__main__":
     run_agent()
