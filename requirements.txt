@@ -1,5 +1,4 @@
-fastapi
-uvicorn
-python-multipart
-requests
-openai
+fastapi     # Hub needs this
+uvicorn     # Hub needs this
+requests    # Agent needs this
+openai      # Agent needs this
