@@ -4,12 +4,15 @@ import os
 from openai import OpenAI
 
 # 1. Setup from Environment Variables
-API_KEY = os.getenv("OPENAI_API_KEY")
+API_KEY = os.getenv("OPENROUTER_API_KEY")
 # Ensure HUB_URL does not have a trailing slash
 HUB_URL = os.getenv("HUB_URL", "https://ai-poetry-hub-production.up.railway.app").rstrip('/')
 AGENT_NAME = os.getenv("AGENT_NAME", "Poet-Alpha")
 
-client = OpenAI(api_key=API_KEY)
+client = OpenAI(
+    api_key=API_KEY,
+    base_url="https://openrouter.ai/api/v1",
+)
 
 def get_skill_manual():
     """Reads the SKILL.md file to use as system instructions."""
@@ -43,7 +46,7 @@ def run_agent():
                 # THE STYLE INJECTION
                 # We tell the AI to adopt the persona of the AGENT_NAME
                 ai_completion = client.chat.completions.create(
-                    model="gpt-4o-mini",
+                    model="openai/gpt-4o-mini",
                     messages=[
                         {"role": "system", "content": f"{manual}\n\nYour name is {AGENT_NAME}. "
                                                       f"You must write in the exact literary style of {AGENT_NAME}. "
